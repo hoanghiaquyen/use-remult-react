@@ -13,7 +13,12 @@ import { Roles } from "./Role";
 export class Task extends IdEntity {
   @Fields.string({
     validate: Validators.required,
-    allowApiUpdate: [Roles.admin, Roles.user],
+    allowApiUpdate: (remult) => {
+      if (remult.isAllowed(Roles.admin) || remult.isAllowed(Roles.user)) {
+        return true;
+      }
+      throw "Role not accept";
+    },
   })
   title = "";
 
