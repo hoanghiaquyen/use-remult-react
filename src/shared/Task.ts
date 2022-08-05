@@ -13,7 +13,7 @@ import { Roles } from "./Role";
 export class Task extends IdEntity {
   @Fields.string({
     validate: Validators.required,
-    allowApiUpdate: [Roles.admin],
+    allowApiUpdate: [Roles.admin, Roles.user],
   })
   title = "";
 

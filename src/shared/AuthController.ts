@@ -6,7 +6,8 @@ export class AuthController {
   static async signIn(username: string) {
     const validUsers = [
       { id: "1", name: "Jane", roles: [Roles.admin] },
-      { id: "2", name: "Steve", roles: [] },
+      { id: "2", name: "Steve", roles: [Roles.user] },
+      { id: "3", name: "John", roles: [] },
     ];
     const user = validUsers.find((user) => user.name === username);
 
